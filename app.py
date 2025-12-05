@@ -7,6 +7,12 @@ app = Flask(__name__)
 FILES_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'files')
 
 
+@app.route('/')
+def health():
+    """Health check endpoint."""
+    return 'OK', 200
+
+
 @app.route('/file/<path:filename>')
 def serve_file(filename):
     """Serve a text file from the files directory."""

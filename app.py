@@ -30,4 +30,5 @@ if __name__ == '__main__':
     # Ensure the files directory exists
     os.makedirs(FILES_DIR, exist_ok=True)
     debug_mode = os.environ.get('FLASK_DEBUG', 'false').lower() == 'true'
-    app.run(debug=debug_mode)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=debug_mode)
